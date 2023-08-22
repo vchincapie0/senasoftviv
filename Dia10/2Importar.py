@@ -1,0 +1,3 @@
+from Saludo import *
+
+saludo()
