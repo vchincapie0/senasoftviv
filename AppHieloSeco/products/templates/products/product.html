@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%load funcion_tag%}
+{%block content%}
+    <div class="mt-5 col-3">
+        {%if product.image%}
+        <img src="{{product.image.url}}" alt="Imagen Producto" width="200" height="200">
+        {%endif%}
+    </div>
+    <div class="mt-5 col">
+        <div class="h1">{{product.title}}</div>
+        <div class="h5 font-weignt-bold">Precio: <span class="text-success">COL {{product.price | precio_tag}}</span></div>
+        
+        <div class="alert alert-info">
+            <strong>{{product.description}}</strong>
+        </div>
+        <div>
+            {%include 'carts/snippets/add.html'%}
+        </div>
+    </div>
+{%endblock%}

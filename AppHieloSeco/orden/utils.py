@@ -1,0 +1,14 @@
+from carts.funciones import funcionCarrito
+from.models import Orden
+
+def funcionOrden(cart,request):
+    cart = funcionCarrito(request)
+    orden = Orden.objects.filter(cart=cart).first()
+
+    if orden is None and request.user.is_authenticated:
+        orden=Orden.objects.create(cart=cart,user=request.user)
+
+    if orden:
+        request.session['orden_id'] = orden.id
+
+    return

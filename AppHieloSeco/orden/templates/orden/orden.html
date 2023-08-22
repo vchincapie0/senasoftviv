@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="col-8">
+    <div class="h2">Gracias por Comprar en PaperICE {{cart.user}}</div>
+
+    <div class="card">
+        <div class="card-body">
+            {%for i in cart.product_related%}
+            {%with product=i.product%}
+            {%include 'orden/snippets/product.html'%}
+            {%endwith%}
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}
